@@ -1,0 +1,28 @@
+.Information {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+	text-align: center;
+	margin-bottom: 2px;
+	padding: 10px;
+}
+
+.Input {
+	font-size: 18px;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+
+.Button {
+	font-size: 36px;
+	padding: 8px 12px;
+	background-color: #4caf50;
+	color: #fff;
+	cursor: pointer;
+}
+
+.Information button:hover {
+	font-size: 16px;
+	background-color: #45a049;
+}
