@@ -1,15 +1,10 @@
-const generateDate = () =>
-	new Date(Math.random() * 1000000000000 + 1999999999999)
-		.toISOString()
-		.substring(0, 16)
-		.replace('T', ' ');
+import { getUser } from './get-user';
+import { addUser } from './add-user';
+import { createSession } from './create-session';
 
 export const server = {
 	async authorize(authLogin, authPassword) {
-		const users = await fetch('http://localhost:3005/users').then((loadedUsers) =>
-			loadedUsers.json(),
-		);
-		const user = users.find(({ login }) => login === authLogin);
+		const user = await getUser(authLogin);
 
 		if (!user) {
 			return {
@@ -24,27 +19,13 @@ export const server = {
 			};
 		}
 
-		const session = {
-			logout() {
-				Object.keys(session).forEach((key) => {
-					delete session[key];
-				});
-			},
-			removeComponent() {
-				console.log('Удаенние комментария');
-			},
-		};
-
 		return {
 			error: null,
-			res: session,
+			res: createSession(user.role_id),
 		};
 	},
 	async register(regLogin, regPassword) {
-		const users = await fetch('http://localhost:3005/users').then((loadedUsers) =>
-			loadedUsers.json(),
-		);
-		const user = users.find(({ login }) => login === regLogin);
+		const user = await getUser(regLogin);
 
 		if (user) {
 			return {
@@ -53,33 +34,11 @@ export const server = {
 			};
 		}
 
-		await fetch('http://localhost:3005/users', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'aplication/json;charset=utf-8',
-			},
-			body: JSON.stringify({
-				login: regLogin,
-				password: regPassword,
-				registed_at: generateDate(),
-				role_id: 2,
-			}),
-		});
-
-		const session = {
-			logout() {
-				Object.keys(session).forEach((key) => {
-					delete session[key];
-				});
-			},
-			removeComponent() {
-				console.log('Удаенние комментария');
-			},
-		};
+		await addUser(regLogin, regPassword);
 
 		return {
 			error: null,
-			res: session,
+			res: createSession(user.role_id),
 		};
 	},
 };
