@@ -1,20 +1,30 @@
 import { Routes, Route } from 'react-router-dom';
+import { Header } from './bff/components';
 import styled from 'styled-components';
 
+const AppColum = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 1000px;
+	min-height: 100%;
+	margin: 0 auto;
+	background-color: #fff;
+`;
+//флексим, ориентируем по вертикали, растягиваем по вертикали, зададим ширину 1000пх, мин высоту, отцентруем
+
 const Content = styled.div`
-	pading: 120px 0;
+	padding: 120px 0;
 `;
 
 const H2 = styled.h2`
 	text-align: center;
 `;
-
-const Header = () => <div> Шапка</div>;
 const Footer = () => <div> Footer</div>;
 
 export const Blog = () => {
 	return (
-		<>
+		<AppColum>
 			<Header />
 			<Content>
 				<H2> Контент страницы </H2>
@@ -29,6 +39,6 @@ export const Blog = () => {
 				</Routes>
 			</Content>
 			<Footer />
-		</>
+		</AppColum>
 	);
 };
