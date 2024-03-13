@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { Header } from './bff/components';
+import { Header, Footer } from './bff/components';
 import styled from 'styled-components';
 
 const AppColum = styled.div`
@@ -20,7 +20,6 @@ const Content = styled.div`
 const H2 = styled.h2`
 	text-align: center;
 `;
-const Footer = () => <div> Footer</div>;
 
 export const Blog = () => {
 	return (
