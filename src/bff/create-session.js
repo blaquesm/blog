@@ -1,5 +1,5 @@
 import { removeComponent } from './session';
-import { ROLE } from './constants';
+import { ROLE } from '../constants';
 
 export const createSession = (roleId) => {
 	const session = {

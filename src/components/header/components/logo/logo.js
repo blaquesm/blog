@@ -1,4 +1,4 @@
-import { Icon } from '../../../../components';
+import { Icon } from '../../..';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 const LargeText = styled.div`
