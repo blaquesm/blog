@@ -1,1 +1,2 @@
-export { Authorization } from './authorization/authorization';
+export * from './authorization/authorization';
+export * from './registration/registration';
