@@ -5,21 +5,7 @@
       "login": "dima",
       "password": "qwe123",
       "registed_at": "2050-09-22",
-      "role_id": "0"
-    },
-    {
-      "id": "d4ce",
-      "login": "ivan",
-      "password": "qwe123",
-      "registed_at": "2039-12-26 06:06",
-      "role_id": 2
-    },
-    {
-      "id": "b5ec",
-      "login": "lenar",
-      "password": "qwe123",
-      "registed_at": "2054-05-28 22:06",
-      "role_id": 2
+      "role_id": 0
     }
   ],
   "roles": [
